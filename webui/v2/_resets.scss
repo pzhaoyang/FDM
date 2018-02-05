@@ -1,0 +1,35 @@
+/*** *** *** RESETS: START *** *** ***/
+* {
+	-webkit-user-select: none;
+	outline: none;
+	cursor: default;
+}
+
+.macosx * {
+  cursor: default !important;
+}
+
+blockquote,body,dd,div,dl,dt,embed,fieldset,form,h1,h2,h3,h4,h5,h6,input,li,object,ol,p,pre,table,td,th,ul {padding: 0; margin: 0;}
+
+a {text-decoration: none; cursor: pointer;}
+
+address,caption,cite,code,dfn,em,h1,h2,h3,h4,h5,h6,strong,th,var {font-weight: 400;}
+
+table {border-collapse: collapse; border-spacing: 0;}
+
+ol,ul {list-style: none;}
+
+abbr,acronym,fieldset,img {border: 0;}
+
+input[type=text], input[type=search], input[type=number], input[type=password] {
+	cursor: text !important;
+	font: 14px "Helvetica", Arial, sans-serif;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+	-webkit-user-select: auto;
+	outline: auto;
+}
+
+input[type=search]::-webkit-search-cancel-button {cursor: default !important;}
+/*** *** *** RESETS: END *** *** ***/

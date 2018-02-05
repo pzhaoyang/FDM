@@ -1,0 +1,49 @@
+.de {
+	//header
+	&.windows .wrapper_updates {
+		left: -130px;
+		&:before {left: 154px;}
+	}
+	.wrapper_updates {
+		width: 275px;
+		.btn.left {margin-left: 0;}
+	}
+
+	//main downloads list
+	.info-time .percents {
+		font-size: 12px;
+		margin-bottom: 2px;
+	}
+
+	//bottom panel
+	.tab-general .wrapper_table table td {
+		min-width: 130px;
+		&.title:first-child {width: 150px; max-width: none;}
+	}
+	.traffic-bar {
+		.speed-chooser {width: 227px;}
+		& > ul .down-speed-chooser, .traffic-bar > ul .up-speed-chooser {width: 70px;}
+		& > ul .up-speed-chooser {width: 80px;}
+	}
+
+	//modal
+	.center-choose-speed .s_margin_right {width: 175px;}
+	.alt_popup .alt_text {
+		margin-top: 0;
+		margin-bottom: 22px;
+	}
+	.group_button .left_button, .group_button .right_button {
+		width: auto;
+		min-width: 110px;
+	}
+	.popup .total a {margin-right: 4px;}
+
+	//settings
+	.settings_wrapper .tum_tab table {
+		width: 610px;
+		.wrapper_inselect {max-width: 136px;}
+	}
+	.popup.scheduler_on .bottom .error-message {
+		max-width: 260px;
+	}
+}

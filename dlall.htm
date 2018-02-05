@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<script language="VBScript">
+
+Sub AddLinkByJson(json)
+On Error Resume Next
+set manager = CreateObject ("FdmExternalConnectionManager")
+if err<>0 then
+Alert("Free Download Manager not properly installed! Please reinstall Free Download Manager")
+else
+manager.initialize "ie", 0
+manager.createDownloadsManager.createDownloads json, 1
+end if
+end sub
+
+</script>
+
+<script type="text/javascript">
+    function extractDomain(url) 
+    {
+        var a = document.createElement('a');
+        a.href = url;
+        return a.hostname;
+    }
+    
+    function thisDomainCookie(linkHostname, pageHostname)
+    {
+        if (linkHostname == pageHostname || linkHostname == "")
+            return true;
+        var index = linkHostname.indexOf(pageHostname);
+        return index > 0 && 
+            linkHostname[index-1] == '.' &&
+            (index + pageHostname.length) == linkHostname.length;
+    }
+</script>
+
+<script type="text/javascript">
+    var document = external.menuArguments.document;
+    var arr = new Array;
+    var pageHostName = extractDomain(document.URL);
+    for (var step = 0; step < 2; step++)
+    {
+        var els;
+        if (step == 0)
+            els = document.getElementsByTagName('a');
+        else
+            els = document.getElementsByTagName('img');
+        for (var i = 0; i < els.length; i++)
+        {
+            var item = new Object;
+            item.url = step == 0 ? els[i].href : els[i].src;
+            var hostname = step == 0 ? els[i].hostname : extractDomain(item.url);
+            item.httpReferer = document.URL;
+            if (thisDomainCookie(hostname, pageHostName))
+                item.httpCookies = document.cookie;
+            arr.push(item);
+        }
+    }    
+    AddLinkByJson(JSON.stringify(arr));
+</script>

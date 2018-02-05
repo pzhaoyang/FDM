@@ -1,0 +1,22 @@
+.fr {
+	//header
+	.wrapper_updates .btn.left {margin-left: 4%;}
+
+	//main downloads list
+	.info-time .percents {
+		font-size: 12px;
+		margin-bottom: 2px;
+	}
+
+	//bottom panel
+	.tab-general .wrapper_table table td.title:first-child {width: 150px; max-width: none;}
+
+	//modal
+	.center-choose-speed .s_margin_right {width: 190px;}
+	.popup .total a {margin-right: 3px;}
+	.group_button .left_button.btn_anyway, .fr .group_button .right_button.btn_anyway {width: 170px;}
+	.wrapper_proxy input[type=text], .wrapper_proxy input[type=password] {width: 110px;}
+	.wrapper_proxy .wrap_form input[type=checkbox] + label:before {top: 2px;}
+	.popup .wrapper_proxy .wrap_form input[type=checkbox] + label:before {top: 50%}
+	.popup .wrapper_proxy .wrap_form input[type=text], .popup .wrapper_proxy .wrap_form input[type=password] {width:100px;}
+}

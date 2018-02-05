@@ -1,0 +1,128 @@
+@font-face {
+	font-family: 'Proxima Nova';
+	src: url(../fonts/ProximaNova-Regular.ttf);
+}
+
+.b_vic {
+	font: 35px/40px "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.b_vic .b_block {
+	position: absolute;
+	width: 570px;
+	height: 316px;
+	top: 50%;
+	left: 50%;
+	margin-top: -158px;
+	margin-left: -285px;
+	background-color: #fff;
+	@include box-shadow(0 0 12px 0 rgba(64, 64, 64, 0.45));
+}
+
+.b_vic .b_close {
+	position: absolute;
+	top: 14px;
+	right: 10px;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+	z-index: 20;
+	background: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Ctitle%3EVector%20Smart%20Object21%3C%2Ftitle%3E%3Cpolygon%20points%3D%2223.5%2022.12%2017.38%2016%2023.5%209.88%2022.12%208.5%2016%2014.62%209.88%208.5%208.5%209.88%2014.62%2016%208.5%2022.13%209.88%2023.5%2016%2017.38%2022.13%2023.5%2023.5%2022.12%22%2F%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20style%3D%22fill%3Anone%22%2F%3E%3C%2Fsvg%3E') no-repeat;
+}
+
+.b_vic .b_body {
+	padding: 20px 28px 27px;
+	position: relative;
+}
+
+.b_vic .b_body img, .b_vic .b_body div {
+	position: relative;
+	z-index: 10;
+}
+
+.b_vic .b_body:after {
+	content: '';
+	display: block;
+	width: 202px;
+	height: 246px;
+	position: absolute;
+	bottom: 26px;
+	right: 28px;
+	background: url("../v2_images/bg_b2.png") no-repeat;
+}
+
+.b_vic .b_logo {
+	display: block;
+	margin-bottom: 40px;
+}
+
+.b_vic .b_logo .txt {
+	font: 20px/32px "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.b_vic .b_logo_title {
+	color: #2c77f9;
+	display: block;
+	font: 700 23px "Proxima Nova Bold", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.b_vic .b_title {
+	max-width: 400px;
+	margin-bottom: 50px;
+	font-size: 28px;
+	line-height: 34px;
+}
+
+.b_vic .b_title b {
+	font-weight: 700;
+	color: #555;
+	font-family: "Proxima Nova Bold", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.b_vic .b_btn {
+	display: inline-block;
+	cursor: pointer;
+	color: #fff;
+	background-color: #3f78fb;
+	text-align: center;
+	width: 165px;
+	font: 20px/50px "Arial", sans-serif;
+	-webkit-border-radius: 9px;
+	-moz-border-radius: 9px;
+	border-radius: 9px;
+
+	img {
+		position: relative;
+		top: 8px;
+	}
+}
+
+.b_vic .b_body .s_err {
+	color: red;
+	position: absolute;
+	font-size: 14px;
+	margin-top: 42px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 90%;
+}
+
+.b_vic .b_body .s_ins {
+	position: absolute;
+	font-size: 14px;
+	margin-top: 42px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 90%;
+}
+
+.progress_line {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+	background-color: #2b78f9;
+}

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>FDM</title>
+
+    <!--<link rel="stylesheet" type="text/css" href="style.css" />-->
+    <link rel="stylesheet" type="text/css" href="v2_css/style.css" />
+
+	<link rel="stylesheet" href="colpicker/css/colpick.css" type="text/css"/>
+	
+	<meta name="viewport" content="width=device-width">
+	
+	<script src="jquery.min.js" type="text/javascript"></script>
+	<script src="promise-6.0.1.min.js" type="text/javascript"></script>
+
+	<script src="jquery.plugins.js" type="text/javascript"></script>
+
+	<script src="underscore.js" type="text/javascript"></script>
+	<script src="backbone.js" type="text/javascript"></script>
+    <script src="backbone.treemodel.js" type="text/javascript"></script>
+
+	<!--<script src="moment.min.js" type="text/javascript"></script>-->
+	<script src="moment-with-locales.min.js" type="text/javascript"></script>
+
+	<script src="translations/fdm.localization.js" type="text/javascript"></script>
+	<script src="fdm.definitions.js" type="text/javascript"></script>
+
+	<script src="fdm.appViewManager.js" type="text/javascript"></script>
+
+	<script src="fdm.utils.js" type="text/javascript"></script>
+
+    <script src="fdm.schedule.js" type="text/javascript"></script>
+    <script src="fdm.downloads.js" type="text/javascript"></script>
+    <script src="fdm.downloadwizard.js" type="text/javascript"></script>
+    <script src="fdm.settings.js" type="text/javascript"></script>
+	<script src="fdm.customSpeedDialog.js" type="text/javascript"></script>
+	<script src="fdm.bottompanel.js" type="text/javascript"></script>
+	<script src="fdm.trafficpanel.js" type="text/javascript"></script>
+    <script src="fdm.menu.js" type="text/javascript"></script>
+    <script src="fdm.tagspanel.js" type="text/javascript"></script>
+	<script src="fdm.tagsdialog.js" type="text/javascript"></script>
+	<script src="fdm.updater.js" type="text/javascript"></script>
+	<script src="fdm.adsModal.js" type="text/javascript"></script>
+	<script src="fdm.sharer.js" type="text/javascript"></script>
+	<script src="fdm.bundles.js" type="text/javascript"></script>
+	<script src="fdm.simpleDialogs.js" type="text/javascript"></script>
+    <script src="fdm.calculateChecksum.js" type="text/javascript"></script>
+	<script src="fdm.proxyAPI.js" type="text/javascript"></script>
+	<!--<script src="fdm.fakes.js" type="text/javascript"></script>-->
+    <!--<script src="translations/fakes.localization.js" type="text/javascript"></script>-->
+	<script src="fdm.rpcApiProxy.js" type="text/javascript"></script>
+    <script src="fdm.main.js" type="text/javascript"></script>
+    <script src="fdm.fileTree.js" type="text/javascript"></script>
+    <script src="layout_tools.js" type="text/javascript"></script>
+	<script src="colpicker/js/colpick.js" type="text/javascript"></script>
+
+    <script src="react/Flux.js" type="text/javascript"></script>
+
+    <script src="react/react-with-addons-0.14.3.js" type="text/javascript"></script>
+    <script src="react/react-dom-0.14.3.js" type="text/javascript"></script>
+    <script src="react/i18n-react.js" type="text/javascript"></script>
+
+    <script src="react/fdm.react.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-downloads.tpl.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-table-header-info.tpl.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-traffic-panel.tpl.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-bottom-panel.tpl.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-tag-panel.tpl.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-toolbar.tpl.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-download-wizard.tpl.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-updater.tpl.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-settings.tpl.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-popup-menu.tpl.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-delete-popup-dialog.tpl.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-custom-speed-dialog.tpl.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-simple-dialogs.tpl.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-calculate-checksum.tpl.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-schedule.tpl.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-bundles.tpl.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-sharer.tpl.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-change-url-dialog.tpl.js" type="text/javascript"></script>
+    <script src="react/tpl/rjs-change-path-dialog.tpl.js" type="text/javascript"></script>
+
+    <script src="autotest.js" type="text/javascript"></script>
+
+
+</head>
+
+<body class="compact-view-shown"
+      onkeydown="app.handleKeydown(event)"
+      onkeyup="app.handleKeyup(event)"
+      onfocus="app.controllers.downloads.view_model.onFocus()">
+
+    <script type="text/javascript">
+        if (fdmApp.platform == 'win')
+            document.body.classList.add('windows');
+        else if (fdmApp.platform == 'mac')
+        {
+            document.body.classList.add('macosx');
+            if (typeof window.chrome === "object")
+                document.body.classList.add('mac_cef');
+        }
+    </script>
+
+    <div class="b_tutorial popup__overlay" style="display: none;">
+        <div class="mount"></div>
+        <div class="b_block">
+            <div class="b_close"></div>
+            <div class="b_body">
+                <div class="b_logo">
+                    <img src="v2_images/logo_tutorial.svg" alt="">
+                    <div>
+                        CryptoGiveaway<br>
+                        Bounty
+                    </div>
+                </div>
+                <div class="slides_container">
+                    <div class="b_content">
+                        <div class="step1">
+                            <div class="inner">
+                                <div class="step_pic"></div>
+                                <div class="title">
+                                    Your Christmas gift from<br>
+                                    FDM Team!
+                                </div>
+                                <div class="text">
+                                    Read news of the cryptocurrency world
+                                    and participate in our giveaway
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step2">
+                            <div class="inner">
+                                <div class="step_pic"></div>
+                                <div class="title">
+                                    Get bonuscoins<br>now
+                                </div>
+                                <div class="text">
+                                    Bonuscoins are free coupons<br>
+                                    for our cryptocurrency tokens
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step3">
+                            <div class="inner">
+                                <div class="step_pic"></div>
+                                <div class="title">
+                                    Help us<br>
+                                    grow the audience
+                                </div>
+                                <div class="text">
+                                    Bonuscoins are free coupons<br>
+                                    for our cryptocurrency tokens
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step4">
+                            <div class="inner">
+                                <div class="step_pic"></div>
+                                <div class="title">
+                                    The cryptocurrency launch<br>
+                                    is planned in early 2018
+                                </div>
+                                <div class="text">
+                                    Starting from this moment,
+                                    you will be able to convert
+                                    your bonuscoins to<br>
+                                    a new cryptocurrency!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prev"></div>
+                    <div class="next"></div>
+                </div>
+                <div class="nav_bar">
+                    <div class="circle active"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="btn">Get it!</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="react-sharer-dialog"></div>
+    <div id="react-bundles-dialog"></div>
+
+    <div id="react-default-client-message"></div>
+
+    <div class="first_view" style="display: none;">
+        <img src="preloading_FDM.GIF" alt="">
+    </div>
+
+    <div id="transparent_colors" onclick="transparent_colors_click()" class="transparent_colors"></div>
+
+    <div id="react-delete-popup-dialog"></div>
+    <div id="react-calculate-checksum-dialog"></div>
+    <div id="react-change-url-dialog"></div>
+    <div id="react-schedule-dialog"></div>
+    <div id="react-reset-settings-dialog"></div>
+
+    <div id="react-settings-container"></div>
+    <div id="react-path-dialog"></div>
+
+    <div id="modal-dialog-layer" class="modal-dialog-layer" style="display: none;"></div>
+
+    <!--HEADER: START-->
+
+    <!--<div tabindex="2" id="header" data-bind="event: { keydown: handleKeydown, keyup: handleKeyup, blur: onFocusLost, focus: onFocus }">--> <!--for knockout-->
+    <div tabindex="2" id="header">
+
+        <div id="transparent-overlay" data-bind="click: function(){ $root.closeMenu.apply(this, arguments)}"></div>
+
+        <!--HEADER-NAV: START-->
+
+        <div id="react-toolbar-container"></div>
+
+        <!--HEADER-NAV: END-->
+    </div>
+
+
+    <div id="react-popup-menu-container"></div>
+
+    <!--HEADER: END-->
+
+    <!--CONTENT: START-->
+    <div class="content">
+
+        <!--HEADER-tags: start ///and set to .content value: top:83px; -->
+
+        <div id="react-tags-panel-messages"></div>
+        <div id="react-tags-dialog-container"></div>
+        <div id="react-tag-panel-container"></div><!--for react-->
+        <!--<div id="react-tag-panel-colours"></div>for react-->
+
+        <!-- HEADER-tags: END-->
+
+        <!--MAIN-COLUMN: START-->
+        <div class="main-column" id="scrolling-list" >
+
+
+            <div id="react-empty-downloads-container"></div><!--for react-->
+
+
+            <div id="react-filter-no-results-container"></div>
+
+            <div class="main-column-wrap" id="download-list-parent">
+
+                <div id="react-table-header-info-container"></div><!--for react-->
+
+
+                <div id="react-downloads-scroll-container"></div><!--for react-->
+
+                <script type="text/html" id="downloads-table-view"></script>
+	            <script type="text/html" id="downloads-simple-view"></script>
+	            <script type="text/html" id="downloads-compact-view"></script>
+            </div>
+
+        </div>
+        <!--MAIN-COLUMN: END-->
+
+        <!--RIGHT-COLUMN: START--
+        <div id="right-panel" class="right-column" data-bind="if: currentItem != null">
+        </div>
+        !--RIGHT-COLUMN: END-->
+
+        <!--BOTTOM-ROW: START-->
+
+        <div id="react-bottom-panel"></div><!--for react-->
+
+        <!--BOTTOM-ROW: END-->
+    </div>
+    <!--CONTENT: END-->
+
+    <!--TRAFFIC-BAR: START-->
+
+    <div id="react-traffic-panel"></div><!--for react-->
+
+    <!--TRAFFIC-BAR: END-->
+
+    <div id="react-download-wizard"></div>
+    <!--<div id="react-download-wizard-add-container"></div>-->
+    <!--<div id="react-download-wizard-source-container"></div>-->
+
+    <div id="react-custom-speed-dialog-container"></div>
+
+    <div id="react-simple-dialogs"></div>
+
+</body>
+</html>

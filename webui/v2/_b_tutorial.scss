@@ -1,0 +1,200 @@
+.b_tutorial {
+	font: 16px/22px "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+
+	.b_block {
+		position: absolute;
+		width: 600px;
+		height: 418px;
+		top: 50%;
+		left: 50%;
+		margin-top: -209px;
+		margin-left: -300px;
+		background-color: #f8f8f8;
+		@include box-shadow(0 0 12px 0 rgba(64, 64, 64, 0.45));
+	}
+
+	.b_close {
+		position: absolute;
+		top: 6px;
+		right: 5px;
+		width: 32px;
+		height: 32px;
+		cursor: pointer;
+		z-index: 20;
+		background: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Ctitle%3EVector%20Smart%20Object21%3C%2Ftitle%3E%3Cpolygon%20points%3D%2223.5%2022.12%2017.38%2016%2023.5%209.88%2022.12%208.5%2016%2014.62%209.88%208.5%208.5%209.88%2014.62%2016%208.5%2022.13%209.88%2023.5%2016%2017.38%2022.13%2023.5%2023.5%2022.12%22%2F%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20style%3D%22fill%3Anone%22%2F%3E%3C%2Fsvg%3E') no-repeat;
+	}
+
+	.b_body {
+		padding: 20px;
+		position: relative;
+	}
+
+	.b_logo {
+		color: #222f3a;
+		overflow: hidden;
+		font: 700 22px/24px "Proxima Nova Bold", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+
+		img {
+			display: block;
+			width: 50px;
+			height: 50px;
+			float: left;
+			margin-right: 12px;
+		}
+	}
+
+	.slides_container {
+		position: relative;
+		height: 246px;
+		overflow: hidden;
+
+		.b_content {
+			overflow-x: auto;
+			white-space: nowrap;
+			height: 450px;
+			& > div {
+				display: inline-block;
+				vertical-align: top;
+				width: 100%;
+				white-space: normal;
+				@include box-sizing(border-box);
+			}
+		}
+
+		.inner {
+			margin: 0 auto;
+			padding-left: 34px;
+			padding-right: 26px;
+			@include box-sizing(border-box);
+		}
+
+		.step_pic {
+			width: 246px;
+			height: 246px;
+			display: block;
+			float: right;
+			margin-top: -60px;
+			margin-left: 20px;
+		}
+
+		.step1 .step_pic {background: url(../v2_images/tutorial/step1.svg) no-repeat;}
+
+		.step2 .step_pic {background: url(../v2_images/tutorial/step2.svg) no-repeat;}
+
+		.step3 .step_pic {background: url(../v2_images/tutorial/step3.svg) no-repeat;}
+
+		.step4 .step_pic {background: url(../v2_images/tutorial/step4.svg) no-repeat;}
+
+		.title {
+			font-size: 20px;
+			line-height: 26px;
+			margin-top: 60px;
+			margin-bottom: 3px;
+		}
+	}
+
+	.nav_bar {
+		text-align: center;
+		font-size: 0;
+		margin-bottom: 20px;
+
+		.circle {
+			width: 10px;
+			height: 10px;
+			display: inline-block;
+			margin-right: 7px;
+			&:last-child {margin-right: 0;}
+			&:before {
+				content: '';
+				display: block;
+				width: 8px;
+				height: 8px;
+				margin: 1px auto;
+				border: 2px solid #d6d6d6;
+				@include border-radius(100%);
+				@include box-sizing(border-box);
+				@include transition(all .1s linear);
+			}
+			&.active:before {
+				width: 10px;
+				height: 10px;
+				margin: 0;
+				background-color: #d6d6d6;
+				@include transition(all .1s linear);
+			}
+		}
+	}
+
+	.btn {
+		color: #fff;
+		font-size: 20px;
+		line-height: 40px;
+		cursor: pointer;
+		width: 134px;
+		text-align: center;
+		margin: 0 auto;
+		overflow: hidden;
+		background-color: #00af9d;
+		@include border-radius(5px);
+		@include box-sizing(border-box);
+	}
+
+	.next, .prev {
+		width: 22px;
+		height: 22px;
+		position: absolute;
+		top: 115px;
+		cursor: pointer;
+	}
+	.prev {background: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2044%2044%22%3E%3Ctitle%3EVector%20Smart%20Object3%3C%2Ftitle%3E%3Cpath%20d%3D%22M-65.83%2C53l-2.67%2C2.65-15-15%2C15-15%2C2.65%2C2.64L-78.23%2C40.69Z%22%20transform%3D%22translate(96.67%20-18.69)%22%20style%3D%22fill%3A%23323232%22%2F%3E%3Crect%20width%3D%2244%22%20height%3D%2244%22%20style%3D%22fill%3Anone%22%2F%3E%3C%2Fsvg%3E') no-repeat; left: -4px;}
+	.next {background: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2044%2044%22%3E%3Ctitle%3EVector%20Smart%20Object3%3C%2Ftitle%3E%3Cpath%20d%3D%22M-83.5%2C53l2.67%2C2.65%2C15-15-15-15-2.65%2C2.64%2C12.37%2C12.36Z%22%20transform%3D%22translate(96.67%20-18.69)%22%20style%3D%22fill%3A%23323232%22%2F%3E%3Crect%20width%3D%2244%22%20height%3D%2244%22%20style%3D%22fill%3Anone%22%2F%3E%3C%2Fsvg%3E') no-repeat; right: -4px;}
+
+	.s_err {
+		color: red;
+		position: absolute;
+		font-size: 14px;
+		text-align: center;
+		width: 100%;
+		margin-top: -21px;
+		left: 0;
+		right: 0;
+	}
+
+	.loading_tutorial {
+		display: block;
+		margin: 7px auto;
+	}
+
+	.progress_line {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 4px;
+		background-color: #00af9d;
+	}
+
+	.show_again {
+		position: absolute;
+		left: 54px;
+		bottom: 30px;
+		input[type=checkbox] {display: none;}
+		input[type=checkbox] + label {
+			position: relative;
+			padding-left: 25px;
+			font-size: 14px;
+			color: #666;
+			&:before {
+				content: '';
+				display: block;
+				width: 14px;
+				height: 14px;
+				position: absolute;
+				top: 1px;
+				left: 0;
+				background: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2014%2014%22%3E%3Ctitle%3EVector%20Smart%20Object5%3C%2Ftitle%3E%3Crect%20x%3D%220.5%22%20y%3D%220.5%22%20width%3D%2213%22%20height%3D%2213%22%20style%3D%22fill%3A%23fff%22%2F%3E%3Cpath%20d%3D%22M67.91-104.84v12h-12v-12h12m1-1h-14v14h14v-14Z%22%20transform%3D%22translate(-54.91%20105.84)%22%20style%3D%22fill%3A%23666%22%2F%3E%3C%2Fsvg%3E') no-repeat;
+			}
+		}
+		input[type=checkbox]:checked + label:before {background: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2014%2014%22%3E%3Ctitle%3EVector%20Smart%20Object5%3C%2Ftitle%3E%3Crect%20x%3D%220.5%22%20y%3D%220.5%22%20width%3D%2213%22%20height%3D%2213%22%20style%3D%22fill%3A%23fff%22%2F%3E%3Cpath%20d%3D%22M67.91-104.84v12h-12v-12h12m1-1h-14v14h14v-14Z%22%20transform%3D%22translate(-54.91%20105.84)%22%20style%3D%22fill%3A%23666%22%2F%3E%3Cpolygon%20points%3D%225.45%2010.73%202%207.28%202.9%206.38%205.45%208.93%2011.1%203.27%2012%204.17%205.45%2010.73%22%20style%3D%22fill%3A%234fc7c3%22%2F%3E%3C%2Fsvg%3E') no-repeat;}
+	}
+}

@@ -1,0 +1,49 @@
+.ru {
+	//header
+	&.windows .wrapper_updates {
+		left: -130px;
+		&:before {left: 154px;}
+	}
+	.wrapper_updates {
+		width: 275px;
+		.btn.left {margin-left: 0;}
+	}
+
+	//main downloads list
+	.compact-view-info ul li.compact-view-date {width: 101px;}
+	.download-list .row.completed.without_upload:not(.error) .compact-download-title {@include calc(width, '100% - 302px');}
+	.download-list .row.completed .compact-download-title {@include calc(width, '100% - 452px');}
+	.compact-view-info ul li.compact-view-name,
+	.download-list .row.partially.completed .compact-download-title,
+	.download-list .row.completed.is_moving .compact-download-title,
+	.download-list .row.error.is_moving .compact-download-title,
+	.download-list .row.error .compact-download-title,
+	.download-list .compact-download-title {@include calc(width, '100% - 602px');}
+
+	.info-time .percents {
+		font-size: 11px;
+		margin-bottom: 4px;
+	}
+
+	//modal
+	.modal_title {font-size: 30px;}
+
+	.center-choose-speed .s_margin_right {width: 145px;}
+
+	.group_button .left_button, .group_button .right_button {
+		width: auto;
+		min-width: 90px;
+	}
+
+	//settings
+	.settings_wrapper .tum_tab table {
+		width: 610px;
+		.wrapper_inselect {max-width: 136px;}
+	}
+	.popup.scheduler_on .bottom .error-message {
+		max-width: 260px;
+	}
+
+	//bottom panel
+	.tab-general .wrapper_table table td {min-width: 105px;}
+}

@@ -1,0 +1,312 @@
+/*extend classes: start*/
+//z-index
+$z-index: (
+		gifs: 5000,
+		popup: 3000,
+		trsprnt_scroll: 3000,
+		traffic_bar: 2700,
+		for_speed: 2600,
+		updates: 2600,
+		trnsprnt_updates: 2500,
+		tag_triangle: 2500,
+		tag_is_edit: 2500,
+		settings: 2500,
+		sort_list: 2100,
+		manage_tags: 2100,
+		transparent_tags: 2100,
+		edit_tag: 2100,
+		drag_drop: 2000,
+		transparent_block: 1800,
+		manage_tag: 1600,
+		inselect: 1000,
+		transparent_select: 500,
+		first_screen: 220,
+		bottom_panel: 210,
+		filter_no_results: 200,
+		sort_arrow: 100,
+		error: 40,
+		folder_triangle: 10,
+		speed_chooser: 10,
+		row_elements: 10,
+		default_block: 5,
+		current_row: 5,
+		select: 5,
+);
+
+@function z-index($key) {
+	@return map-get($z-index, $key);
+}
+
+@mixin z-index($key) {
+	z-index: z-index($key);
+}
+
+.tag_element {
+	float: left;
+	margin: 0 5px 12px 0;
+	padding: 2px 6px;
+	min-width: 40px;
+	height: 18px;
+	font-size: 11px;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+	color: #4c4c4c;
+	white-space: nowrap;
+	background-color: #ebebeb;
+	@include box-sizing(border-box);
+	&.active:before {
+		content: '';
+		display: block;
+		height: 1px;
+		background-color: #16a4fa;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+  	&.last_in_block {
+	  margin-right: 11px;
+	}
+
+	.tag_color {
+		width: 10px;
+		height: 9px;
+		display: inline-block;
+		margin-right: 5px;
+		z-index: 2;
+		position: relative;
+		&:hover:before {
+			content: '';
+			position: absolute;
+			top: 3px;
+			left: 2px;
+			width: 0;
+			height: 0;
+			border-left: 3px solid transparent;
+			border-right: 3px solid transparent;
+			border-top: 4px solid #fff;
+		}
+		&.system:hover:before {display: none;}
+	}
+
+	.tag_name {
+		position: relative;
+		z-index: 3;
+	}
+}
+
+.tag_hidden_name {font-size: 11px;}
+
+.wrapper_inselect {
+	float: left;
+	height: auto;
+	width: 106px;
+	margin-right: 7px;
+	background-color: #fff;
+	border: 1px solid #d4d4d4;
+	position: relative;
+	padding: 0 36px 0 8px;
+	line-height: 28px;
+	@include border-radius(1px);
+	@include box-sizing(border-box);
+	z-index: 1000;
+
+	.list {
+		top: 28px;
+	}
+
+	.dropdown_button {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 30px;
+		height: 28px;
+		cursor: pointer;
+		border-left: 1px solid #ededed;
+		&:before {
+			content: '';
+			display: block;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 5px 3px 0 3px;
+			border-color: #929292 transparent transparent transparent;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -2px;
+			margin-left: -3px;
+		}
+	}
+
+	.input_wrapper {
+		margin-right: 30px;
+	}
+}
+
+input[type=text].tag_element:focus {outline: none;}
+
+
+.display_flex {@include display-flex;}
+
+.relative {position: relative;}
+
+.display_none {display: none;}
+
+%header_sprite {
+	background: url("../v2_images/header_button.svg") no-repeat;
+}
+
+%elements_sprite {
+	background: url("../v2_images/elements.svg?51120") no-repeat;
+}
+
+%actions_sprite {
+	background: url("../v2_images/actions.svg") no-repeat;
+}
+
+%settings_sprite {
+	background: url("../v2_images/checkbox.svg") no-repeat;
+}
+
+%flags_sprite {
+	background: url("../v2_images/flags.svg") no-repeat;
+}
+
+%text_overflow, .rubber-ellipsis {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+%style_select {
+	-webkit-appearance: none;
+	display: inline-block;
+	border: 1px solid #b8b8b8;
+	height: 32px;
+	background: url("../v2_images/arrow_combobox.svg") no-repeat right 5px center;
+	@include border-radius(5px);
+	@include box-sizing(border-box);
+}
+
+%header_button {
+	width: 40px;
+	height: 22px;
+	border: 1px solid #b3b3b3;
+	cursor: pointer;
+    background-color: #f7f8f7;
+	@include border-radius(4px);
+	@include box-sizing(border-box);
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		left: 50%;
+		@extend %header_sprite;
+	}
+}
+
+.resizer {
+	display: block;
+	width: 6px;
+	height: 22px;
+	border-right: 1px solid #e5e5e5;
+	position: absolute;
+	right: 0;
+	top: 1px;
+	cursor: ew-resize !important;
+}
+
+.float_none {
+	float: none;
+	clear: both;
+}
+
+%checkbox {
+	content: '';
+	display: block;
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	@extend %settings_sprite;
+}
+
+%downloading_line{
+	background: url(../v2_images/line_small.gif) repeat-x;
+	@include border-radius(3px);
+	@include box-sizing(border-box);
+	//background-color: #17a2f7;
+	//@include background-image(linear-gradient(135deg, #abdfff 25%, transparent 25%, transparent 50%, #abdfff 50%, #abdfff 75%, transparent 75%, transparent));
+	//@include animation(animate-stripes 3s linear infinite);
+}
+
+%sort {
+	content: '';
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin-left: 5px;
+	position: relative;
+	@include z-index(sort_arrow);
+	@extend %elements_sprite;
+}
+
+%sort_up {background-position: -38px -104px;}
+%sort_down {background-position: -18px -104px;}
+
+.compact-view-shown .compact-progress-wrap .no-size.downloading_paused_line div,
+.tab-general .general-tab-wrap .progress-wrap.unknown_size.downloading_paused_line .progress-line-wrap,
+.compact-view-shown .is_queued .compact-progress-wrap .no-size div,
+.tab-general .general-tab-wrap .progress-wrap.unknown_size.is_queued .progress-line-wrap {
+	background-color: #bfbfbf;
+	@include background-image(linear-gradient(135deg, #e1e1e1 25%, transparent 25%, transparent 50%, #e1e1e1 50%, #e1e1e1 75%, transparent 75%, transparent));
+	@include animation(none);
+	background-size: 30px 30px;
+}
+/*extend classes: end*/
+
+/*mixins: start*/
+@mixin calc($property, $expression) {
+	#{$property}: -webkit-calc(#{$expression});
+	#{$property}: calc(#{$expression});
+}
+
+@include keyframes(animate-stripes){
+	0% {background-position: 0 0;} 100% {background-position: 60px 0;}
+}
+
+@mixin animation($value) {
+	-webkit-animation: $value;
+	-moz-animation: $value;
+	-ms-animation: $value;
+	-o-animation: $value;
+	animation: $value;
+}
+
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content
+	}
+	@-moz-keyframes #{$name} {
+		@content
+	}
+	@-ms-keyframes #{$name} {
+		@content
+	}
+	@-o-keyframes #{$name} {
+		@content
+	}
+	@keyframes #{$name} {
+		@content
+	}
+}
+
+@include keyframes(spinner){
+	from {
+		@include transform(rotate(0deg));
+	} to {
+		  @include transform(rotate(360deg));
+	  }
+}
+/*mixins: end*/
